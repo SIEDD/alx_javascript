@@ -5,6 +5,6 @@ class Rectangle {
     }
   }
   
-  const myRectangle = new Rectangle(2, 3);
+  const myRectangle = new Rectangle(3, 3);
   console.log(myRectangle);
   
