@@ -8,7 +8,7 @@ class Rectangle {
         console.warn("Invalid width or height. Creating an empty rectangle.");
       }
     }
-  }
+}
 module.exports = Rectangle; 
 
   
