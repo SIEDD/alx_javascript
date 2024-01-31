@@ -8,16 +8,5 @@ class Square extends Rectangle {
 }
 module.exports = Rectangle;
 
-const mySquare = new Square(5);
-console.log(mySquare); 
-mySquare.print();
 
-
-mySquare.rotate();
-console.log("Square after rotate():");
-mySquare.print();
-
-mySquare.double();
-console.log("Square after double():");
-mySquare.print();
 
