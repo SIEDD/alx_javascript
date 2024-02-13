@@ -11,3 +11,4 @@ for (let i = 0; i < numbers.length; i++) {
 // Print the updated array
 console.log(numbers);
 
+
