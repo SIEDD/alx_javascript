@@ -1,14 +1,9 @@
-// Array of numbers
-const numbers = [3, 12, 7, 4, 89, 23, 17];
+// script that replaces the value in an object
+const myObject = {
+    type: 'object',
+    value: 12
+  };
+  console.log(myObject);
 
-// Loop through the array and replace the value 12 with 89
-for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] === 12) {
-        numbers[i] = 89;
-    }
-}
-
-// Print the updated array
-console.log(numbers);
-
-
+myObject.value = 89
+  console.log(myObject);
