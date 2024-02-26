@@ -1,1 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Management</title>
+</head>
+<body>
+  <h1 id="welcomeMessage" style="display: none;"></h1>
+  <div id="loginForm" style="display: none;">
+    <h2>Login Form</h2>
+    <label for="loginFirstname">First Name:</label>
+    <input type="text" id="loginFirstname"><br><br>
+    <label for="loginEmail">Email:</label>
+    <input type="text" id="loginEmail"><br><br>
+    <button onclick="setCookies()">Log me in</button>
+    <button onclick="showCookies()">Show the cookies</button>
+    <div id="cookies"></div>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
 
