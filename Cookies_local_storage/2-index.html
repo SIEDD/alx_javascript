@@ -1,21 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cookie Management</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Management</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+    .container {
+        text-align: center;
+    }
+    input[type="text"] {
+        padding: 10px;
+        margin: 5px;
+        width: 200px;
+    }
+    button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    p {
+        margin-top: 20px;
+    }
+</style>
 </head>
 <body>
-  <h1>Cookie Management</h1>
-  <label for="firstname">First Name:</label>
-  <input type="text" id="firstname"><br><br>
-  <label for="email">Email:</label>
-  <input type="text" id="email"><br><br>
-  <button onclick="setCookies()">Log me in</button>
-  <button onclick="showCookies()">Show the cookies</button>
-  <div id="cookies"></div>
+<div class="container">
+    <input type="text" id="firstname" placeholder="First Name">
+    <br>
+    <input type="text" id="email" placeholder="Email">
+    <br>
+    <button onclick="setCookies()">Log me in</button>
+    <button onclick="showCookies()">Show the cookies</button>
+</div>
 
-  <script src="bundle.js"></script>
+<script>
+    function setCookies() {
+        var firstname = document.getElementById('firstname').value;
+        var email = document.getElementById('email').value;
+        var expiryDate = new Date();
+        expiryDate.setDate(expiryDate.getDate() + 10); // Set expiration to 10 days from now
+        var expires = "expires=" + expiryDate.toUTCString();
+        document.cookie = "firstname=" + firstname + ";" + expires + ";path=/";
+        document.cookie = "email=" + email + ";" + expires + ";path=/";
+    }
+
+    function getCookie(name) {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.startsWith(name + '=')) {
+                return cookie.substring(name.length + 1);
+            }
+        }
+        return "";
+    }
+
+    function showCookies() {
+        var email = getCookie('email');
+        var firstname = getCookie('firstname');
+        var cookieContainer = document.createElement('div');
+        var paragraph = document.createElement('p');
+        paragraph.textContent = "Email: " + email + " - Firstname: " + firstname;
+        cookieContainer.appendChild(paragraph);
+        document.body.appendChild(cookieContainer);
+    }
+</script>
+
 </body>
 </html>
-
